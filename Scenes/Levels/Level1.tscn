@@ -1,45 +1,18 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
 
-[node name="Node" type="Node"]
+[ext_resource path="res://Resources/floor.tres" type="Material" id=1]
 
-[node name="Ground" type="CSGBox" parent="."]
-transform = Transform( 1.2169, 0, 0, 0, 0.0566138, 0, 0, 0, 1, 0, 0, 0 )
-width = 8.0
-depth = 15.0
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.877306, 0.0552847, 1.02712 )
 
-[node name="CSGBox2" type="CSGBox" parent="."]
-transform = Transform( 1.2169, 0, 0, 0, -9.22356e-09, -1, 0, 0.0566138, -1.62921e-07, -4.16507, 1.35081, 0 )
-width = 4.0
-depth = 4.0
+[sub_resource type="PlaneMesh" id=2]
 
-[node name="CSGBox3" type="CSGBox" parent="."]
-transform = Transform( 1.2169, 0, 0, 0, -9.22356e-09, -1, 0, 0.0566138, -1.62921e-07, 3.44947, 1.35081, 0 )
-width = 4.0
-depth = 4.0
+[node name="Ground" type="StaticBody"]
 
-[node name="CSGBox4" type="CSGBox" parent="."]
-transform = Transform( 1.2169, 0, 0, 0, -9.22356e-09, -1, 0, 0.0566138, -1.62921e-07, 0.339435, 1.35081, 7.32074 )
-width = 8.173
-depth = 4.0
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0804681, 0 )
+shape = SubResource( 1 )
 
-[node name="CSGBox5" type="CSGBox" parent="."]
-transform = Transform( 1.2169, 0, 0, 0, -9.22356e-09, -1, 0, 0.0566138, -1.62921e-07, -0.345796, 3.17867, 0.020443 )
-width = 4.0
-depth = 1.0
-
-[node name="CSGBox6" type="CSGBox" parent="."]
-transform = Transform( 1.2169, 0, 0, 0, -9.22356e-09, -1, 0, 0.0566138, -1.62921e-07, 3.6867, 0.65296, 3.72921 )
-height = 1.0
-depth = 4.0
-
-[node name="CSGBox7" type="CSGBox" parent="."]
-transform = Transform( 1.2169, 0, 0, 0, -9.22356e-09, -1, 0, 0.0566138, -1.62921e-07, -3.11124, 0.65296, -3.89285 )
-width = 2.344
-height = 1.0
-depth = 5.495
-
-[node name="CSGBox8" type="CSGBox" parent="."]
-transform = Transform( -1.98259e-07, 0.0566138, -1.62921e-07, 0, -9.22356e-09, -1, -1.2169, -9.22356e-09, 2.65431e-14, -1.70332, 2.46633, -1.99401 )
-width = 3.06829
-height = 1.0
-depth = 1.425
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 1 )

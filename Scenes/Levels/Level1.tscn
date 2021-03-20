@@ -8,6 +8,7 @@ extents = Vector3( 0.877306, 0.0552847, 1.02712 )
 [sub_resource type="PlaneMesh" id=2]
 
 [node name="Ground" type="StaticBody"]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0804681, 0 )

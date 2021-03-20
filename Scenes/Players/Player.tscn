@@ -24,8 +24,12 @@ albedo_color = Color( 0.0862745, 0.0235294, 0.0509804, 1 )
 [node name="Player" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0.00346375, 0, 0 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
+visible = false
 shape = SubResource( 1 )
 
 [node name="Body" type="MeshInstance" parent="."]

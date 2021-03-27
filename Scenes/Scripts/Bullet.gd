@@ -16,6 +16,6 @@ func _physics_process(delta):
 
 
 func _on_Bullet_body_entered(body):
-	print(body)
 	emit_signal("exploded", transform.origin)
+	queue_free()
 

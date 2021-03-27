@@ -3,11 +3,16 @@ extends KinematicBody
 
 onready var Bullet = preload("res://Scenes/Players/Bullet.tscn")
 
+const JUMP_SPEED = 18
 
-# Declare member variables here. Examples:
 var motion = Vector3()
+var MOUSE_SENSITIVITY = 0.05
+var rotation_helper
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _ready():
+	rotation_helper = $RotationHelper
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 func _process(delta):
 	move()
 	shoot()
@@ -29,6 +34,12 @@ func move():
 		motion.x = 0
 		
 	move_and_slide(motion.normalized(), Vector3.UP)
+	
+	if Input.is_action_just_pressed("ui_cancel"):
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func shoot():
@@ -37,3 +48,9 @@ func shoot():
 		owner.add_child(bullet)
 		bullet.transform = $Hand.global_transform
 		bullet.velocity = -bullet.transform.basis.z*bullet.muzzle_velocity
+
+
+func _input(event):
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		rotation_helper.rotate_x(deg2rad(event.relative.y * MOUSE_SENSITIVITY))
+		self.rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))

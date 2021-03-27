@@ -2,20 +2,17 @@ extends Area
 
 signal exploded
 
-export var muzzle_velocity = 25
-export var g = Vector3.DOWN*20
+export var muzzle_velocity = 250
+export var g = Vector3.DOWN*5
 
 
-var velocity = Vector3.ZERO
+export var velocity = Vector3.ZERO
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 
 func _physics_process(delta):
-	velocity += delta*g
-	look_at(transform.origin + velocity.normalized(), Vector3.UP)
+	#velocity += delta*g
+	#look_at(transform.origin + velocity.normalized(), Vector3.UP)
 	transform.origin += velocity*delta
 
 

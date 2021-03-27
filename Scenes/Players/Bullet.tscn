@@ -13,6 +13,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+muzzle_velocity = 40
+g = Vector3( 0, -15, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, 0, 0 )

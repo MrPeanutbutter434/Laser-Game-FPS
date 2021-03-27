@@ -45,9 +45,10 @@ func move():
 func shoot():
 	if Input.is_action_just_pressed("shoot"):
 		var bullet = Bullet.instance()
-		owner.add_child(bullet)
-		bullet.transform = $Hand.global_transform
-		bullet.velocity = -bullet.transform.basis.z*bullet.muzzle_velocity
+		add_child(bullet)
+		bullet.set_as_toplevel(true)
+		bullet.transform = $RotationHelper/Hand.global_transform
+		bullet.velocity = -bullet.transform.basis.y*bullet.muzzle_velocity
 
 
 func _input(event):

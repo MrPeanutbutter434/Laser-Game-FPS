@@ -22,7 +22,7 @@ albedo_color = Color( 0.0862745, 0.0235294, 0.0509804, 1 )
 [sub_resource type="CapsuleShape" id=8]
 
 [node name="Player" type="KinematicBody"]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0.003, 0, 1 )
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0.00346375, 0, 0 )
 script = ExtResource( 1 )
 
 [node name="RotationHelper" type="Spatial" parent="."]

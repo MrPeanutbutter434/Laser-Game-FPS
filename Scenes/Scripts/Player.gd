@@ -4,6 +4,7 @@ extends KinematicBody
 onready var Bullet = preload("res://Scenes/Players/Bullet.tscn")
 
 const JUMP_SPEED = 18
+const GRAVITY = -24
 
 var motion = Vector3()
 var MOUSE_SENSITIVITY = 0.05
@@ -14,32 +15,42 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _process(delta):
-	move()
+	move(delta)
 	shoot()
+	toggle_mouse_mode()
+	jump()
 
 
-func move():
-	if Input.is_action_pressed("move_left"):
-		motion.z = -1
-	elif Input.is_action_pressed("move_right"):
-		motion.z = 1
-	else:
-		motion.z = 0
-		
-	if Input.is_action_pressed("move_forward"):
-		motion.x = 1
-	elif Input.is_action_pressed("move_backwards"):
-		motion.x = -1
-	else:
-		motion.x = 0
-		
-	move_and_slide(motion.normalized(), Vector3.UP)
-	
+func toggle_mouse_mode():
 	if Input.is_action_just_pressed("ui_cancel"):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
+func move(delta):
+	if Input.is_action_pressed("move_left"):
+		motion.x = -1
+	elif Input.is_action_pressed("move_right"):
+		motion.x = 1
+	else:
+		motion.x = 0
+		
+	if Input.is_action_pressed("move_forward"):
+		motion.z = -1
+	elif Input.is_action_pressed("move_backwards"):
+		motion.z = 1
+	else:
+		motion.z = 0
+		
+	motion.y += delta*GRAVITY	
+	move_and_slide(motion, Vector3.UP)
+
+
+func jump():
+	if Input.is_action_just_pressed("jump"):
+		motion.y = JUMP_SPEED
 
 
 func shoot():

@@ -14,7 +14,7 @@ func _ready():
 	rotation_helper = $RotationHelper
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-func _process(delta: float)-> void:
+func _process(delta: float)->void:
 	move(delta)
 	shoot()
 	toggle_mouse_mode()
@@ -29,7 +29,7 @@ func toggle_mouse_mode():
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
-func move(delta):
+func move(delta:float)->void:
 	if Input.is_action_pressed("move_left"):
 		motion.x += -1
 	elif Input.is_action_pressed("move_right"):
@@ -62,7 +62,7 @@ func shoot():
 		bullet.velocity = -bullet.transform.basis.y*bullet.muzzle_velocity
 
 
-func _input(event):
+func _input(event: InputEvent):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotation_helper.rotate_x(deg2rad(event.relative.y * MOUSE_SENSITIVITY))
 		self.rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))

@@ -43,3 +43,4 @@ material/0 = null
 
 [node name="Bot" parent="Bot" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, -8.07628, 1.94815, 0 )
+[connection signal="player_position" from="Player" to="Bot/Bot" method="_on_Player_player_position"]

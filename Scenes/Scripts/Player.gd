@@ -1,10 +1,17 @@
 extends KinematicBody
 
+class_name Player
+
+
+signal player_position(position)
+
 
 onready var Bullet = preload("res://Scenes/Players/Bullet.tscn")
 
+
 const JUMP_SPEED:int = 18
 const GRAVITY:int = -24
+
 
 var motion = Vector3()
 var MOUSE_SENSITIVITY: float = 0.05
@@ -17,11 +24,14 @@ func _ready():
 	camera = $Camera
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+
 func _process(delta: float)->void:
 	move(delta)
 	shoot()
 	toggle_mouse_mode()
 	jump()
+	emit_signal("player_position", self.translation)
+
 
 func toggle_mouse_mode():
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -47,7 +57,7 @@ func move(delta:float)->void:
 		motion.z = 0
 		
 	motion.y += delta*GRAVITY	
-	move_and_slide(motion.normalized(), Vector3.UP)
+	move_and_slide(motion.normalized()*3, Vector3.UP)
 	
 	dir = Vector3()
 	

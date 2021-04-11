@@ -7,8 +7,8 @@ func _ready():
 	$Timer.start()
 
 
-#func _process(delta):
-#	pass
+func _process(delta):
+	pass
 
 
 func shoot():
@@ -23,3 +23,9 @@ func shoot():
 
 func _on_Timer_timeout():
 	shoot()
+
+
+func _on_Player_player_position(position:Vector3):
+	look_at(position, Vector3(0,1,0))
+	rotate_object_local(Vector3(1, 0, 0), PI/2)
+

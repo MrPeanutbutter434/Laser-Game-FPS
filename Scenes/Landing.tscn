@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Players/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Levels/Level1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Players/Bot.tscn" type="PackedScene" id=3]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -17,7 +18,7 @@ physics_material_override = null
 transform = Transform( 0.210147, 0.97767, -1.59283e-07, 0, -1.62921e-07, -1, -0.97767, 0.210147, -3.42374e-08, 0, 1.67609, 0 )
 
 [node name="Camera" type="Camera" parent="Player"]
-transform = Transform( 8.14603e-08, 0.5, -0.866025, 1, -1.62921e-07, 0, -1.41093e-07, -0.866025, -0.5, -3.15973, 0.286945, -3.78172 )
+transform = Transform( -4.47035e-08, 0.5, -0.866025, 1, -1.11759e-07, -7.45058e-08, -1.41093e-07, -0.866025, -0.5, -3.96195, 0.459379, -3.4719 )
 keep_aspect = 0
 
 [node name="Objects" type="Node" parent="."]
@@ -37,3 +38,8 @@ shape = SubResource( 1 )
 [node name="MeshInstance" type="MeshInstance" parent="Objects/RigidBody"]
 mesh = SubResource( 2 )
 material/0 = null
+
+[node name="Bot" type="Node" parent="."]
+
+[node name="Bot" parent="Bot" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, -8.07628, 1.94815, 0 )

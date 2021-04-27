@@ -21,7 +21,7 @@ var MOUSE_SENSITIVITY: float = 0.05
 var rotation_helper
 var dir: Vector3
 var vel: Vector3
-var camera
+var camera: Camera
 
 func _ready():
 	rotation_helper = $RotationHelper

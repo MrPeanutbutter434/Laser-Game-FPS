@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="FPS Laser Game"
-run/main_scene="res://Scenes/Main.tscn"
+run/main_scene="res://Scenes/UI/StartMenu.tscn"
 config/icon="res://icon.png"
 
 [input]

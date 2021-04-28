@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/main-menu.jpg" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_right = 1027.0
+margin_bottom = 622.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+anchor_right = 0.507
+anchor_bottom = 0.965
+margin_right = 0.310974
+margin_bottom = -0.230042

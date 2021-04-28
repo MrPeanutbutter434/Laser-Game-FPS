@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Assets/main-menu.jpg" type="Texture" id=1]
+[ext_resource path="res://Scripts/StartMenu.gd" type="Script" id=2]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 margin_right = 1027.0
@@ -45,3 +47,5 @@ margin_top = 340.0
 margin_right = 431.0
 margin_bottom = 360.0
 text = "CHOOSE CHARACTER"
+[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]

@@ -27,5 +27,5 @@ func _on_Timer_timeout():
 
 func _on_Player_player_position(position:Vector3):
 	look_at(position, Vector3(0,1,0))
-	#rotate_object_local(Vector3(1, 0, 0), PI/2)
+	rotate_object_local(Vector3(1, 0, 0), PI/2)
 

@@ -100,8 +100,8 @@ func shoot():
 		var bullet = Bullet.instance()
 		add_child(bullet)
 		bullet.set_as_toplevel(true)
-		bullet.transform = $RotationHelper/Hand.global_transform
-		bullet.velocity = -bullet.transform.basis.y*bullet.muzzle_velocity
+		#bullet.transform = $RotationHelper/Hand.global_transform
+		#bullet.velocity = -bullet.transform.basis.y*bullet.muzzle_velocity
 
 
 func _input(event: InputEvent):

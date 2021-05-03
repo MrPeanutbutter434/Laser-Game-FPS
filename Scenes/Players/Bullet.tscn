@@ -8,6 +8,7 @@
 radius = 0.3
 
 [node name="Bullet" type="Area"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 collision_layer = 2147483652
 script = ExtResource( 1 )
 __meta__ = {

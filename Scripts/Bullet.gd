@@ -10,7 +10,7 @@ export var velocity = Vector3.ZERO
 
 
 func _physics_process(delta:float)->void:
-	var forward = global_transform.basis.x.normalized()
+	var forward = global_transform.basis.z.normalized()
 	global_translate(forward*muzzle_velocity*delta)
 	
 

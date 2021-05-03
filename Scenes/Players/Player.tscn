@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-
-
+[ext_resource path="res://Assets/Weapons/Pistol.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -47,6 +46,9 @@ material/0 = SubResource( 6 )
 [node name="Body" type="MeshInstance" parent="RotationHelper"]
 mesh = SubResource( 7 )
 material/0 = null
+
+[node name="Pistol" parent="RotationHelper" instance=ExtResource( 2 )]
+transform = Transform( 2.65432e-13, -1.62921e-06, 10, -10, -1.62921e-06, 0, 1.62921e-06, -10, -1.62921e-06, 1.71999, 1.07791, -0.362058 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 visible = false

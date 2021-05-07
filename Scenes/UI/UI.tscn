@@ -1,45 +1,58 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/UI.gd" type="Script" id=1]
 
-
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/pause-2.png-9b3c05cb05141625ffe9da527bd5f033.stex"
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource( 1 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-anchor_top = -0.002
-anchor_right = 0.999
-anchor_bottom = 0.144
-margin_left = -1.33635
-margin_top = -0.136346
-margin_right = 0.687561
-margin_bottom = 0.263649
-custom_constants/separation = 900
+[node name="HBoxContainer" type="GridContainer" parent="."]
+anchor_right = 0.78125
+anchor_bottom = 0.863333
+margin_right = -268.0
+rect_clip_content = true
+size_flags_horizontal = 2
+size_flags_vertical = 2
+columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Pause" type="Button" parent="HBoxContainer"]
-margin_right = 50.0
-margin_bottom = 87.0
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+margin_right = 524.0
+margin_bottom = 518.0
+rect_clip_content = true
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="Pause" type="Button" parent="HBoxContainer/HBoxContainer"]
+margin_right = 524.0
+margin_bottom = 518.0
+rect_min_size = Vector2( 200, 200 )
+rect_clip_content = true
+size_flags_horizontal = 2
+size_flags_vertical = 2
 toggle_mode = true
-text = "Pause"
+icon = SubResource( 1 )
+flat = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 950.0
-margin_right = 1024.0
-margin_bottom = 87.0
+margin_left = 528.0
+margin_right = 728.0
+margin_bottom = 518.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="HealthBar" type="ProgressBar" parent="HBoxContainer/VBoxContainer"]
-margin_right = 74.0
+margin_right = 200.0
 margin_bottom = 14.0
 
 [node name="WeaponsBar" type="ProgressBar" parent="HBoxContainer/VBoxContainer"]
 margin_top = 18.0
-margin_right = 74.0
+margin_right = 200.0
 margin_bottom = 32.0
 
 [node name="PauseDialog" type="WindowDialog" parent="."]
@@ -47,4 +60,4 @@ margin_left = 303.045
 margin_top = 242.46
 margin_right = 703.046
 margin_bottom = 322.46
-[connection signal="toggled" from="HBoxContainer/Pause" to="." method="_on_Pause_toggled"]
+[connection signal="toggled" from="HBoxContainer/HBoxContainer/Pause" to="." method="_on_Pause_toggled"]

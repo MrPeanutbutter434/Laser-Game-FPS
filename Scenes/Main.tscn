@@ -9,7 +9,7 @@
 
 [sub_resource type="CubeMesh" id=2]
 
-[node name="Node" type="Node"]
+[node name="Main" type="Node"]
 
 [node name="Ground" parent="." instance=ExtResource( 1 )]
 collision_mask = 2
@@ -47,3 +47,4 @@ transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, -8.0762
 
 [node name="UI" parent="." instance=ExtResource( 4 )]
 [connection signal="player_position" from="Player" to="Bot/Bot" method="_on_Player_player_position"]
+[connection signal="update_health" from="Player" to="UI" method="_on_Player_update_health"]

@@ -4,7 +4,7 @@ class_name Player
 
 
 signal player_position(position)
-
+signal update_health(health)
 
 onready var Bullet = preload("res://Scenes/Players/Bullet.tscn")
 
@@ -15,6 +15,7 @@ const MAX_SPEED: int = 20
 const MAX_SLOPE_ANGLE:int = 40
 const ACCEL:int = 2
 const DEACCEL:int = 4
+const health: float = 0.8
 
 var motion = Vector2()
 var MOUSE_SENSITIVITY: float = 0.05
@@ -27,6 +28,7 @@ func _ready():
 	rotation_helper = $RotationHelper
 	camera = $Camera
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	emit_signal("update_health", health)
 
 
 func _process(delta: float)->void:
@@ -35,6 +37,7 @@ func _process(delta: float)->void:
 	toggle_mouse_mode()
 	jump()
 	emit_signal("player_position", self.translation)
+	
 
 
 func toggle_mouse_mode():

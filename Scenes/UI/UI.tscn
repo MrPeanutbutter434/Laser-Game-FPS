@@ -10,7 +10,7 @@ script = ExtResource( 1 )
 anchor_right = 1.0
 margin_bottom = 100.0
 rect_clip_content = true
-custom_constants/hseparation = 500
+custom_constants/hseparation = 700
 columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -33,19 +33,19 @@ icon = ExtResource( 2 )
 flat = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 600.0
+margin_left = 800.0
 margin_right = 1024.0
 margin_bottom = 100.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="HealthBar" type="ProgressBar" parent="HBoxContainer/VBoxContainer"]
-margin_right = 424.0
+margin_right = 224.0
 margin_bottom = 14.0
 
 [node name="WeaponsBar" type="ProgressBar" parent="HBoxContainer/VBoxContainer"]
 margin_top = 18.0
-margin_right = 424.0
+margin_right = 224.0
 margin_bottom = 32.0
 
 [node name="PauseDialog" type="WindowDialog" parent="."]

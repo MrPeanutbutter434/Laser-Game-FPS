@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/UI.gd" type="Script" id=1]
-[ext_resource path="res://Assets/pause-2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/pause-icon.png" type="Texture" id=2]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource( 1 )

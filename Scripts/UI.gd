@@ -1,17 +1,13 @@
 extends CanvasLayer
 
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 func _on_Pause_toggled(button_pressed:bool):
 	if(button_pressed):
 		$PauseDialog.show()
+
+
+func _on_Player_update_health(health:float):
+	health = clamp(health, 0.0, 1.0)
+	var healthBar = $HBoxContainer/VBoxContainer/HealthBar as ProgressBar
+	healthBar.value = health*100
+	

@@ -1,5 +1,6 @@
 extends KinematicBody
 
+
 onready var Bullet = preload("res://Scenes/Players/Bullet.tscn")
 
 
@@ -17,8 +18,6 @@ func shoot():
 	bullet.set_as_toplevel(true)
 	bullet.transform = $RotationHelper/Hand.global_transform
 	bullet.velocity = -bullet.transform.basis.y*bullet.muzzle_velocity
-
-
 
 
 func _on_Timer_timeout():

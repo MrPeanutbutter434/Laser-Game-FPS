@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/UI.gd" type="Script" id=1]
 [ext_resource path="res://Assets/pause-icon.png" type="Texture" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -42,6 +44,9 @@ size_flags_vertical = 3
 [node name="HealthBar" type="ProgressBar" parent="HBoxContainer/VBoxContainer"]
 margin_right = 224.0
 margin_bottom = 14.0
+custom_styles/bg = SubResource( 1 )
+custom_colors/font_color = Color( 0.898039, 0.176471, 0.176471, 1 )
+custom_colors/font_color_shadow = Color( 0.933333, 0.0470588, 0.0470588, 1 )
 
 [node name="WeaponsBar" type="ProgressBar" parent="HBoxContainer/VBoxContainer"]
 margin_top = 18.0

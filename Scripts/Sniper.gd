@@ -12,5 +12,4 @@ func fire():
 		var body = ray.get_collider()
 		
 		if body.has_method("bullet_hit"):
-			# TODO call bullet_hit method in bots
-			pass
+			body.bullet_hit(DAMAGE)

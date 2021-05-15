@@ -3,6 +3,7 @@ extends KinematicBody
 
 onready var Bullet = preload("res://Scenes/Players/Bullet.tscn")
 
+export var HEALTH:int = 100
 
 func _ready():
 	$Timer.start()
@@ -28,3 +29,6 @@ func _on_Player_player_position(position:Vector3):
 	look_at(position, Vector3(0,1,0))
 	rotate_object_local(Vector3(1, 0, 0), PI/2)
 
+
+func bullet_hit(damage:int)->void:
+	HEALTH -= damage

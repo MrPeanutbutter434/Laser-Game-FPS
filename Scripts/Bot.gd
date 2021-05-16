@@ -5,6 +5,8 @@ onready var Bullet = preload("res://Scenes/Players/Bullet.tscn")
 
 export var HEALTH:int = 100
 
+const BASE_BULLET_BOOST = 9
+
 func _ready():
 	$Timer.start()
 
@@ -32,3 +34,7 @@ func _on_Player_player_position(position:Vector3):
 
 func bullet_hit(damage:int)->void:
 	HEALTH -= damage
+	
+	if HEALTH <= 0:
+		self.queue_free()
+
